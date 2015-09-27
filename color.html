@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>MAGIC COLOR</title>
+        <meta name="description" content="Una guida interattiva per muovere i primi passi su Brackets.">
+        <link rel="stylesheet" href="color.css">
+        <script type="text/javascript">
+                function calcTime(offset) {
+    // create Date object for current location
+    var d = new Date();
+
+    // convert to msec
+    // subtract local time zone offset
+    // get UTC time in msec
+    var utc = d.getTime() - (d.getTimezoneOffset() * 60000);
+
+    // create new Date object for different city
+    // using supplied offset
+    var nd = new Date(utc + (3600000*offset));
+
+    // return time as a string
+    return nd.getHours() + " : " + nd.getMinutes() + " : " + nd.getSeconds();
+}
+           function getTime(offset) {
+    // create Date object for current location
+    var d = new Date();
+
+    // convert to msec
+    // subtract local time zone offset
+    // get UTC time in msec
+    var utc = d.getTime() - (d.getTimezoneOffset() * 60000);
+
+    // create new Date object for different city
+    // using supplied offset
+    var nd = new Date(utc + (3600000*offset));
+
+    // return time
+    return nd;
+} 
+            
+            
+    </script>
+        
+    </head>
+    <body>
+        <div>
+            <h5 id="time"></h5>
+            <script type="text/javascript" >
+                window.setInterval(function(){
+ document.getElementById("time").innerHTML = calcTime(-2.0);
+ document.body.style.backgroundColor = 'rgb(' + 12*getTime(-2.0).getHours() + ',' + 4*getTime(-2.0).getMinutes() + ',' + 4*getTime(-2.0).getSeconds() + ')';
+
+                }, 1000);
+                   
+                </script>
+        </div>
+    </body>
+</html>
